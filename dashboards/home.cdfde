@@ -1,0 +1,899 @@
+{
+ "layout": {
+  "title": "home",
+  "rows": [
+   {
+    "id": "7b74e379-4c23-c964-601e-7ffc3d4b65d3",
+    "type": "LayoutResourceCode",
+    "typeDesc": "Resource",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "value": "CSS",
+      "type": "Id"
+     },
+     {
+      "name": "resourceType",
+      "value": "Css",
+      "type": "Label"
+     },
+     {
+      "name": "resourceCode",
+      "value": ".ui-dialog{\n}\n.ui-dialog.ui-widget.ui-corner-all{\n  border-radius: 0px;\n  padding: 0px 0px 0px 0px;\n}\n.ui-dialog.ui-widget.ui-widget-content{\n  background: #fefefe;\n  color: #aaa;\n  border: 1px solid #333e48;\n}\n.ui-dialog .ui-dialog-titlebar{\n  padding: 3px 7px 5px;\n}\n.ui-dialog .ui-dialog-titlebar.ui-widget-header{\n  border-radius: 0px;\n  background: #333e48;\n  color: #fefefe;\n  border: none;\n  text-shadow: none;\n  font-family: 'Open Sans Light';\n  font-weight: 300;\n  display: none;\n}\n.ui-dialog .ui-dialog-titlebar.ui-widget-header a{\n  display: none;\n}\n.ui-dialog.closeButtonVisible .ui-dialog-titlebar.ui-widget-header a{\n  display: inline;\n}\n.ui-dialog.closeButtonVisible .ui-dialog-titlebar.ui-widget-header a.ui-dialog-titlebar-close.ui-state-focus,\n.ui-dialog.closeButtonVisible .ui-dialog-titlebar.ui-widget-header a.ui-dialog-titlebar-close.ui-state-hover{\n  border: none;\n  background: none;\n}\n.ui-dialog.closeButtonVisible .ui-dialog-titlebar.ui-widget-header a span{\n  background: url('../img/x.png') -45px -10px no-repeat #333e48;\n}\n.ui-dialog.closeButtonVisible .ui-dialog-titlebar.ui-widget-header a.ui-dialog-titlebar-close.ui-state-focus span,\n.ui-dialog.closeButtonVisible .ui-dialog-titlebar.ui-widget-header a.ui-dialog-titlebar-close.ui-state-hover span{\n  background: url('../img/x.png') -45px -10px no-repeat #333e48;\n}\n.ui-dialog .ui-dialog-content{\n  color: #333e48;\n  min-height: 1px !important;\n  padding: 50px 10px 40px;\n  text-align: left;\n  font-size: 20px;\n}\n.ui-dialog .ui-dialog-buttonpane{\n  background: #FFFFFF;\n  border: none;\n  padding: 0px 0px 0px 0px;\n  margin: 0px 0px 0px 0px;\n}\n.ui-dialog .ui-dialog-buttonpane button{\n  background: none;\n  color: #333e48;\n  border-radius: 0px;\n  border: none;\n  font-family: 'Open Sans Light';\n  width: 100px;\n  font-weight: 300;\n}\n.ui-dialog .ui-dialog-buttonpane button:hover{\n  background: #0098c4;\n  color:#FFFFFF;\n}\n\n.ui-widget-overlay{\n  background: #ebedee;\n  opacity: 0.8;\n} ",
+      "type": "Resource"
+     }
+    ]
+   },
+   {
+    "id": "c4b96d51-2718-610c-3203-e961babae831",
+    "type": "LayoutResourceCode",
+    "typeDesc": "Resource",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "value": "JS",
+      "type": "Id"
+     },
+     {
+      "name": "resourceType",
+      "value": "Javascript",
+      "type": "Label"
+     },
+     {
+      "name": "resourceCode",
+      "value": "\n\nvar button = {\n    name: \"button\",\n    label: \"Button\",\n    defaults: {\n        clickAction: function (v, st) {\n            Dashboards.log(v);\n        },\n        buttonText: \"Button\"\n    },\n    init: function () {\n        var myself = this;\n        $.fn.dataTableExt.oSort[this.name + '-asc'] = function (a, b) {\n            return myself.sort(a, b)\n        };\n        $.fn.dataTableExt.oSort[this.name + '-desc'] = function (a, b) {\n            return myself.sort(b, a)\n        };\n    },\n    sort: function (a, b) {\n        return this.sumStrArray(a) - this.sumStrArray(b);\n    },\n    implementation: function (tgt, st, opt) {\n        var t = $(tgt);\n        var value = st.value;\n        var $button = $(\"<button type='button' class='btn btn-default'>\" + opt.buttonText + \"</button>\");\n        $button.click(function () {\n            Dashboards.log(\"Button Clicked\");\n            opt.clickAction(value, st);\n        });\n        t.empty();\n        t.append($button);\n    }\n};\n\nDashboards.registerAddIn(\"Table\", \"colType\", new AddIn(button)); ",
+      "type": "Resource"
+     }
+    ]
+   },
+   {
+    "id": "f7ff100f-9bd9-9d05-9387-742efe1db461",
+    "type": "LayoutRow",
+    "typeDesc": "Row",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "value": "R1",
+      "type": "Id"
+     },
+     {
+      "name": "height",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "backgroundColor",
+      "value": "",
+      "type": "Color"
+     },
+     {
+      "name": "roundCorners",
+      "value": "",
+      "type": "RoundCorners"
+     },
+     {
+      "name": "textAlign",
+      "value": "",
+      "type": "TextAlign"
+     },
+     {
+      "name": "cssClass",
+      "value": "",
+      "type": "String"
+     }
+    ]
+   },
+   {
+    "id": "b1139f07-0de6-40a9-22ec-a3f102247c72",
+    "type": "LayoutRow",
+    "typeDesc": "Row",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "value": "R2",
+      "type": "Id"
+     },
+     {
+      "name": "height",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "backgroundColor",
+      "value": "",
+      "type": "Color"
+     },
+     {
+      "name": "roundCorners",
+      "value": "",
+      "type": "RoundCorners"
+     },
+     {
+      "name": "textAlign",
+      "value": "",
+      "type": "TextAlign"
+     },
+     {
+      "name": "cssClass",
+      "value": "",
+      "type": "String"
+     }
+    ]
+   },
+   {
+    "id": "d49d9bab-8379-e791-cadb-d95abdfe9d18",
+    "type": "LayoutRow",
+    "typeDesc": "Row",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "value": "R3",
+      "type": "Id"
+     },
+     {
+      "name": "height",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "backgroundColor",
+      "value": "",
+      "type": "Color"
+     },
+     {
+      "name": "roundCorners",
+      "value": "",
+      "type": "RoundCorners"
+     },
+     {
+      "name": "textAlign",
+      "value": "",
+      "type": "TextAlign"
+     },
+     {
+      "name": "cssClass",
+      "value": "",
+      "type": "String"
+     }
+    ]
+   },
+   {
+    "id": "c4b3a0af-dac5-e29a-d9d1-b6ff732395d9",
+    "type": "LayoutRow",
+    "typeDesc": "Row",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "value": "R4",
+      "type": "Id"
+     },
+     {
+      "name": "height",
+      "value": "400",
+      "type": "Integer"
+     },
+     {
+      "name": "backgroundColor",
+      "value": "",
+      "type": "Color"
+     },
+     {
+      "name": "roundCorners",
+      "value": "",
+      "type": "RoundCorners"
+     },
+     {
+      "name": "textAlign",
+      "value": "",
+      "type": "TextAlign"
+     },
+     {
+      "name": "cssClass",
+      "value": "",
+      "type": "String"
+     }
+    ]
+   }
+  ]
+ },
+ "components": {
+  "rows": [
+   {
+    "id": "OTHERCOMPONENTS",
+    "name": "Others",
+    "type": "Label",
+    "typeDesc": "<i>Group</i>",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "value": "Others",
+      "type": "Label"
+     }
+    ]
+   },
+   {
+    "id": "dd73f503-2f10-c518-cd17-7027efbe35d1",
+    "type": "ComponentsTable",
+    "typeDesc": "table Component",
+    "parent": "OTHERCOMPONENTS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "TABLE_EXISTING_SCHEMAS",
+      "type": "Id"
+     },
+     {
+      "name": "expandContainerObject",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "listeners",
+      "value": "[]",
+      "type": "Listeners"
+     },
+     {
+      "name": "oLanguage",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "colSortable",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "parameters",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "expandParameters",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "colHeaders",
+      "value": "[\"Solution\",\"Size\",\"Modified\",\"Actions\"]",
+      "type": "Array"
+     },
+     {
+      "name": "colTypes",
+      "value": "[\"string\",\"string\",\"string\",\"button\"]",
+      "type": "colTypesCustom"
+     },
+     {
+      "name": "colFormats",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "colWidths",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "info",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "sort",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "expandOnClick",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "paginate",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "displayLength",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "lengthChange",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "filter",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "colSearchable",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "drawCallback",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "dataSource",
+      "value": "getExistingSchemas",
+      "type": "Datasource"
+     },
+     {
+      "name": "sortBy",
+      "value": "[]",
+      "type": "SortByArray"
+     },
+     {
+      "name": "sDom",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "priority",
+      "value": 5,
+      "type": "Integer"
+     },
+     {
+      "name": "tableStyle",
+      "value": "classic",
+      "type": "TableStyle"
+     },
+     {
+      "name": "paginationType",
+      "value": "two_button",
+      "type": "PaginationType"
+     },
+     {
+      "name": "htmlObject",
+      "value": "${p:R1}",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "paginateServerside",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "function f(){\n    \n    dialog = Dashboards.getComponentByName('${c:dialogGrabComponent}');\n   \n    this.setAddInOptions(\"colType\",\"button\",function(state){\n\n        // Let's turn the second sparkline into a bar\n        \n        console.log(state);\n        \n        var okCallBack = function(){\n            dialog.close();\n        }\n        \n        return {\n            clickAction: function(){\n                \n                var URL = \"http://localhost:8080/pentaho/plugin/ivymse/api/downloadschema?paramSOLUTION_NAME=\"+state.value;\n                \n                $.ajax({\n                    dataType: \"json\",\n                    url: URL,\n                    success: function(){\n                        console.log(\"yay\");\n                    }\n                });\n                \n                Dashboards.fireChange(\"REFRESH_DOWNLOADED\", \"1\");\n                \n                dialog.open({\n                    message: state.value+\" Downloaded\",\n                    buttons:[\n                        { text: \"OK\", click: okCallBack }\n                    ]\n                });\n            },\n            buttonText: \"Download \"+state.value\n        }\n    });\n}",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     },
+     {
+      "name": "extraOptions",
+      "value": "[]",
+      "type": "OptionArray"
+     },
+     {
+      "name": "clickAction",
+      "value": "",
+      "type": "JavaScript"
+     }
+    ]
+   },
+   {
+    "id": "461018d1-4e08-c57e-7be6-6bd6bf6bfc79",
+    "type": "ComponentsTable",
+    "typeDesc": "table Component",
+    "parent": "OTHERCOMPONENTS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "TABLE_DOWNLOADED_SCHEMAS",
+      "type": "Id"
+     },
+     {
+      "name": "expandContainerObject",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "listeners",
+      "value": "['${p:REFRESH_DOWNLOADED}']",
+      "type": "Listeners"
+     },
+     {
+      "name": "oLanguage",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "colWidths",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "colSortable",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "parameters",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "expandParameters",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "colHeaders",
+      "value": "[\"Solution\",\"Size\",\"Modified\"]",
+      "type": "Array"
+     },
+     {
+      "name": "colTypes",
+      "value": "[\"string\",\"string\",\"string\"]",
+      "type": "colTypesCustom"
+     },
+     {
+      "name": "colFormats",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "filter",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "info",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "sort",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "expandOnClick",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "paginate",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "displayLength",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "lengthChange",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "colSearchable",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "drawCallback",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "dataSource",
+      "value": "getDownloadedSchemas",
+      "type": "Datasource"
+     },
+     {
+      "name": "sDom",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "sortBy",
+      "value": "[]",
+      "type": "SortByArray"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "priority",
+      "value": 5,
+      "type": "Integer"
+     },
+     {
+      "name": "tableStyle",
+      "value": "themeroller",
+      "type": "TableStyle"
+     },
+     {
+      "name": "paginationType",
+      "value": "two_button",
+      "type": "PaginationType"
+     },
+     {
+      "name": "htmlObject",
+      "value": "${p:R2}",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "paginateServerside",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     },
+     {
+      "name": "extraOptions",
+      "value": "[]",
+      "type": "OptionArray"
+     },
+     {
+      "name": "clickAction",
+      "value": "",
+      "type": "JavaScript"
+     }
+    ]
+   },
+   {
+    "id": "820da358-2c51-cea5-5037-93ca0d2731b3",
+    "type": "ComponentsTextEditorComponent",
+    "typeDesc": "Text Editor",
+    "parent": "OTHERCOMPONENTS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "EDITOR_SCHEMA",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "${p:PARAM_SCHEMA_FILE}",
+      "type": "Parameter"
+     },
+     {
+      "name": "listeners",
+      "value": "['${p:PARAM_SCHEMA_FILE}']",
+      "type": "Listeners"
+     },
+     {
+      "name": "parameters",
+      "value": "[[\"PARAM_SCHEMA_FILE\",\"PARAM_SCHEMA_FILE\"]]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "priority",
+      "value": 5,
+      "type": "Integer"
+     },
+     {
+      "name": "htmlObject",
+      "value": "${p:R3}",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   },
+   {
+    "id": "051fa9a4-c7a8-786d-335e-86823a5d6d23",
+    "type": "ComponentstextComponent",
+    "typeDesc": "Text Component",
+    "parent": "OTHERCOMPONENTS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "dialogGrabComponent",
+      "type": "Id"
+     },
+     {
+      "name": "listeners",
+      "value": "[]",
+      "type": "Listeners"
+     },
+     {
+      "name": "expression",
+      "value": "function f(){\n    \n    /* tranfering dialog(close) to component's method  - options management similar addins */  \n    this.open = function (opts){\n        \n        /*default opts*/\n        var dialogOpts = {\n            dialogClass: \"confirmationDialog\",\n            modal:true,\n            resizable: false,\n            draggable: false,\n            title: \"Confirmation Message\",\n            buttons: [\n                {\n                    text: \"OK\",\n                    click: function() {\n                        $( this ).dialog( \"close\" );\n                    }\n                }\n            ]\n        };\n        /*merge of defaults with user custom opts*/\n        $.extend( dialogOpts, opts); \n        /*method's action*/\n        $( \"#\" + this.htmlObject ).dialog(dialogOpts);\n        $( \"#\" + this.htmlObject).empty().append($(\"<span>\"+dialogOpts.message+\"</span>\"));\n    };\n    \n    this.close = function (opts){\n        $( \"#\" + this.htmlObject ).dialog('close');\n    };\n}",
+      "type": "JavaScript"
+     },
+     {
+      "name": "priority",
+      "value": 5,
+      "type": "Integer"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "htmlObject",
+      "value": "R4",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   },
+   {
+    "id": "GENERIC",
+    "name": "Generic",
+    "type": "Label",
+    "typeDesc": "<i>Group</i>",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "value": "Generic",
+      "type": "Label"
+     }
+    ]
+   },
+   {
+    "id": "6a1f020e-c6e7-ead2-a35d-9c946d07af66",
+    "type": "ComponentsParameter",
+    "typeDesc": "Simple parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "PARAM_SCHEMA_FILE",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "/system/ivymse/resources/schemas/SampleData.xml",
+      "type": "String"
+     },
+     {
+      "name": "parameterViewRole",
+      "value": "unused",
+      "type": "parameterViewRoleCustom"
+     },
+     {
+      "name": "bookmarkable",
+      "value": "false",
+      "type": "Boolean"
+     }
+    ]
+   },
+   {
+    "id": "27dc75c8-78d5-0a1a-d252-6a841c87bd40",
+    "type": "ComponentsParameter",
+    "typeDesc": "Simple parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "SOLUTION_NAME",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "SampleData",
+      "type": "String"
+     },
+     {
+      "name": "parameterViewRole",
+      "value": "unused",
+      "type": "parameterViewRoleCustom"
+     },
+     {
+      "name": "bookmarkable",
+      "value": "false",
+      "type": "Boolean"
+     }
+    ]
+   },
+   {
+    "id": "c9b98bbb-c2ce-5903-61c4-0a8e12007bba",
+    "type": "ComponentsParameter",
+    "typeDesc": "Simple parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "REFRESH_DOWNLOADED",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "1",
+      "type": "String"
+     },
+     {
+      "name": "parameterViewRole",
+      "value": "unused",
+      "type": "parameterViewRoleCustom"
+     },
+     {
+      "name": "bookmarkable",
+      "value": "false",
+      "type": "Boolean"
+     }
+    ]
+   }
+  ]
+ },
+ "datasources": {
+  "rows": [
+   {
+    "id": "IVYMSE_CPKENDPOINTS",
+    "name": "IVYMSE Endpoints",
+    "type": "Label",
+    "typeDesc": "<i>Group</i>",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "value": "IVYMSE Endpoints",
+      "type": "Label"
+     }
+    ]
+   },
+   {
+    "id": "3a9a9152-4c90-c93e-4aed-f33c16f77e97",
+    "type": "Componentsivymse_getExistingSchemas_CPKENDPOINT",
+    "typeDesc": "getExistingSchemas Endpoint",
+    "parent": "IVYMSE_CPKENDPOINTS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "getExistingSchemas",
+      "type": "Id"
+     }
+    ],
+    "meta": "CPK",
+    "meta_pluginId": "ivymse",
+    "meta_endpoint": "getExistingSchemas"
+   },
+   {
+    "id": "15f499f7-8169-d8e6-871a-298129a2ae1f",
+    "type": "Componentsivymse_getDownloadedSchemas_CPKENDPOINT",
+    "typeDesc": "getDownloadedSchemas Endpoint",
+    "parent": "IVYMSE_CPKENDPOINTS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "getDownloadedSchemas",
+      "type": "Id"
+     }
+    ],
+    "meta": "CPK",
+    "meta_pluginId": "ivymse",
+    "meta_endpoint": "getDownloadedSchemas"
+   }
+  ]
+ },
+ "filename": "/system/ivymse/dashboards/home.cdfde"
+}
